@@ -1,4 +1,4 @@
-from socket import socket
+import socket
 import threading
 import re
 import time
@@ -35,7 +35,7 @@ class ClientListener(threading.Thread):
         username_result = re.search('^USERNAME (.*)$', data)
         if username_result:
             self.username = username_result.group(1)
-            self.server.echo("{0} has joined.\n".format(self.username))
+            self.server.echo("{0} a rejoint.\n".format(self.username))
         elif data == "QUIT":
             self.quit()
         elif data == "":
